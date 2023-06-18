@@ -34,13 +34,6 @@ class ShowRolesController extends GetxController {
           ),
         ),
       ).then((value){
-        // if (role.title == 'شهروند ساده') {
-        //   int citizenCount = calcCitizenCount();
-        //
-        // }
-
-        print(role);
-        // اینجا یه رول داره isShow اش true میشه ولی وقتی نقش ما شهروند ساده است، تمام شهروند ساده ها رو انگار داره  true میکنه
         role.isShow(true);
       });
     }
