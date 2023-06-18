@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:captain/Consts/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:captain/Consts/measures.dart';
@@ -13,6 +14,9 @@ class ShowRoleContentAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color roleColor = role.role != 0
+        ? Colors.greenAccent.shade200
+        : Colors.redAccent.shade200;
     return Container(
       width: Get.width,
       height: Get.height * .8,
@@ -20,9 +24,7 @@ class ShowRoleContentAlert extends StatelessWidget {
         color: Colors.white,
         border: Border.all(
           width: 4.0,
-          color: role.role != 0
-              ? Colors.greenAccent.shade200
-              : Colors.redAccent.shade200,
+          color: roleColor,
         ),
         borderRadius: radiusAll16,
       ),
@@ -46,7 +48,7 @@ class ShowRoleContentAlert extends StatelessWidget {
             child: Image.asset("assets/images/${role.title}.jpg"),
           ),
           SizedBox(
-            height: Get.height * .03,
+            height: Get.height * .02,
           ),
           Text(
             role.description,
@@ -57,7 +59,7 @@ class ShowRoleContentAlert extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: Get.height * .03,
+            height: Get.height * .02,
           ),
           Expanded(
             child: SizedBox(
@@ -91,6 +93,17 @@ class ShowRoleContentAlert extends StatelessWidget {
                     ],
                   );
                 },
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () =>  Get.back(),
+            child: Text(
+              'متوجه شدم',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+                color: mainBgColor,
               ),
             ),
           )

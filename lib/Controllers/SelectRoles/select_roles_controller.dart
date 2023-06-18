@@ -54,13 +54,14 @@ class SelectRolesController extends GetxController {
           playerCount.value = playerCount.value + citizenCount - 1;
           citizenCount = 0;
 
-          selectedRolesList.clear();
-          for (var i = 0; i < citizenCount - 1; i++) {
-            for (var r in selectedRolesList){
-              if (r.title != 'شهروند ساده'){
-                selectedRolesList.add(r);
-              }
+          List<RolesModel> removeRoles = [];
+          for (var r in selectedRolesList){
+            if (r.title == 'شهروند ساده'){
+              removeRoles.add(r);
             }
+          }
+          for (var v in removeRoles){
+            selectedRolesList.remove(v);
           }
 
         }else{

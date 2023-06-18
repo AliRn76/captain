@@ -657,15 +657,6 @@ List<RolesModel> investigatorList = [
   RolesModel(
     id: 7,
     isShow:false.obs,
-    title: 'شهروند ساده',
-    role: 1,
-    isSelected: false.obs,
-    description: 'شهروند ساده نقشی است که قابلیت خاصی در شب ندارد او باید با توجه به اتفاقات شب و روز به دنبال مافیا بگردد و با رای گیری نسبت به بیرون رفتن مافیا اقدام نماید',
-    options: [],
-  ),
-  RolesModel(
-    id: 8,
-    isShow:false.obs,
     title: 'محقق (هانتر)',
     role: 1,
     isSelected: false.obs,
@@ -675,7 +666,7 @@ List<RolesModel> investigatorList = [
     ],
   ),
   RolesModel(
-    id: 9,
+    id: 8,
     isShow:false.obs,
     title: 'بازپرس',
     role: 1,
@@ -685,5 +676,14 @@ List<RolesModel> investigatorList = [
       'بهترین عملکرد برای بازپرس شب اول بازی است زیرا که می‌تواند ساید بازی را برای شهروند ها مشخص کند',
       'اگر یکی از اشخاصی که بازپرس انتخاب کرده است در فاز شب کشته شود، بازپرسی لغو می‌شود و بازپرس مجددا می‌تواند از ابیلیتی خود در شب آینده استفاده کند',
     ],
+  ),
+  RolesModel(
+    id: 9,
+    isShow:false.obs,
+    title: 'شهروند ساده',
+    role: 1,
+    isSelected: false.obs,
+    description: 'شهروند ساده نقشی است که قابلیت خاصی در شب ندارد او باید با توجه به اتفاقات شب و روز به دنبال مافیا بگردد و با رای گیری نسبت به بیرون رفتن مافیا اقدام نماید',
+    options: [],
   ),
 ];
