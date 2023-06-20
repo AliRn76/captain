@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:captain/Models/Roles/roles_model.dart';
 import 'package:captain/Utils/rout_utils.dart';
 
+import '../../Utils/view_utils.dart';
+
 class SelectRolesController extends GetxController {
   RxInt playerCount = 0.obs;
   int player = 0;
@@ -48,7 +50,7 @@ class SelectRolesController extends GetxController {
       // Undo it
       if (role.role == 1) {
         // If it was شهروند ساده
-        if (role.title == 'شهروند ساده') {
+        if (role.title.contains('شهروند ساده')) {
 
           goodRoles = citizenCount;
           playerCount.value = playerCount.value + citizenCount - 1;
@@ -63,7 +65,7 @@ class SelectRolesController extends GetxController {
           for (var v in removeRoles){
             selectedRolesList.remove(v);
           }
-
+          role.title = 'شهروند ساده';
         }else{
           goodRoles++;
         }
@@ -81,7 +83,7 @@ class SelectRolesController extends GetxController {
       if (goodRoles > 0 || citizenCount > 1) {
         role.isSelected(true);
 
-        if (role.title == 'شهروند ساده') {
+        if (role.title.contains('شهروند ساده')) {
           citizenCount = goodRoles;
           goodRoles = 0;
           playerCount.value = playerCount.value - citizenCount;
@@ -97,6 +99,7 @@ class SelectRolesController extends GetxController {
             );
             selectedRolesList.add(newRole);
           }
+          role.title = "${role.title}  x  ${persianNumber(number: citizenCount.toString())}";
         } else {
           if (goodRoles == 0) {
             citizenCount--;
