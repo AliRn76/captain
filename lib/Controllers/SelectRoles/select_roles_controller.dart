@@ -35,6 +35,9 @@ class SelectRolesController extends GetxController {
       if (o.role == 2) {
         hasIndependentRoles = true;
       }
+      if (o.title.contains('شهروند ساده')){
+        o.title = 'شهروند ساده';
+      }
     }
   }
 
@@ -45,31 +48,34 @@ class SelectRolesController extends GetxController {
     if (role.isSelected.isTrue) {
       role.isSelected(false);
       playerCount.value++;
-      selectedRolesList.remove(role);
 
       // Undo it
       if (role.role == 1) {
-        // If it was شهروند ساده
         if (role.title.contains('شهروند ساده')) {
+          // If it was شهروند ساده
 
           goodRoles = citizenCount;
           playerCount.value = playerCount.value + citizenCount - 1;
           citizenCount = 0;
 
+          // Pick all the selected Citizen roles
           List<RolesModel> removeRoles = [];
           for (var r in selectedRolesList){
-            if (role.title.contains('شهروند ساده')){
+            if (r.title.contains('شهروند ساده')){
               removeRoles.add(r);
             }
           }
+          // Remove all the selected Citizen roles
           for (var v in removeRoles){
             selectedRolesList.remove(v);
           }
           role.title = 'شهروند ساده';
         }else{
+          selectedRolesList.remove(role);
           goodRoles++;
         }
       } else {
+        selectedRolesList.remove(role);
         badRoles++;
       }
       return;
@@ -80,7 +86,7 @@ class SelectRolesController extends GetxController {
 
     if (role.role == 1) {
       // If it was citizen
-      if (goodRoles > 0 || citizenCount > 1) {
+      if (goodRoles > 0) {
         role.isSelected(true);
 
         if (role.title.contains('شهروند ساده')) {
@@ -101,11 +107,7 @@ class SelectRolesController extends GetxController {
           }
           role.title = "${role.title}  x  ${persianNumber(number: citizenCount.toString())}";
         } else {
-          if (goodRoles == 0) {
-            citizenCount--;
-          } else {
-            goodRoles--;
-          }
+          goodRoles--;
           playerCount.value--;
           selectedRolesList.add(role);
         }
