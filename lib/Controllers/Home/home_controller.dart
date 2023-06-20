@@ -139,15 +139,15 @@ class HomeController extends GetxController {
     required String data,
     required int id,
   }) {
-    if (id == 0) {
+    if (data.startsWith('09')) {
+      launchUrl(
+        Uri.parse('tel: $data'),
+      );
+    } else {
       launchUrl(
         Uri.parse(
           data,
         ),
-      );
-    } else {
-      launchUrl(
-        Uri.parse('tel: $data'),
       );
     }
   }

@@ -58,7 +58,7 @@ class SelectRolesController extends GetxController {
 
           List<RolesModel> removeRoles = [];
           for (var r in selectedRolesList){
-            if (r.title == 'شهروند ساده'){
+            if (role.title.contains('شهروند ساده')){
               removeRoles.add(r);
             }
           }
