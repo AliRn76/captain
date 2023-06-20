@@ -98,10 +98,24 @@ class ShowRoleContentAlert extends StatelessWidget {
           ),
           TextButton(
             onPressed: () =>  Get.back(),
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    side: BorderSide(
+                      color: roleColor,
+                      width: 1.0,
+                      style: BorderStyle.solid,
+                    )
+                  )
+              ),
+              // backgroundColor: MaterialStateColor.resolveWith((states) => roleColor.withOpacity(.1)),
+            ),
             child: Text(
-              'متوجه شدم',
+              '     متوجه شدم     ',
               style: TextStyle(
                 fontSize: 16.0,
+                fontFamily: 'koodak',
                 fontWeight: FontWeight.bold,
                 color: mainBgColor,
               ),

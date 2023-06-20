@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:captain/Consts/measures.dart';
 import 'package:captain/Controllers/Home/home_controller.dart';
@@ -47,19 +48,22 @@ class BuildCollectorsModal extends StatelessWidget {
             name: 'علی رجب نژاد',
             id: 0,
             role: 'توسعه دهنده',
-            mobile: 'https://alirn.ir/',
+            data1: 'https://alirn.ir',
+            data2: '',
           ),
           const Divider(),
           _buildItems(
             name: 'محمدرضا سلطانی',
-            mobile: '09121086430',
+            data1: '09917347494',
+            data2: 'https://www.instagram.com/mamarezasoltani/',
             role: 'تهیه کننده',
             id: 1,
           ),
           const Divider(),
           _buildItems(
             name: 'حسین خسروی',
-            mobile: '09387126623',
+            data1: '09104046914',
+            data2: 'https://www.instagram.com/castlemafia_/',
             role: 'طراح',
             id: 1,
           ),
@@ -71,7 +75,8 @@ class BuildCollectorsModal extends StatelessWidget {
   Widget _buildItems({
     required String name,
     required String role,
-    required String mobile,
+    required String data1,
+    required String data2,
     required int id,
   }) {
     return SizedBox(
@@ -83,18 +88,23 @@ class BuildCollectorsModal extends StatelessWidget {
           TextButton(
             onPressed: () {
               controller.goData(
-                data: mobile,
-                id:id,
+                data: data1,
+                id: id,
               );
             },
-            child: const Text(
-              'راه ارتباطی',
-              style: TextStyle(
-                fontFamily: 'koodak',
-                fontSize: 12.0,
-              ),
-            ),
+            child: id == 0
+                ? const FaIcon(FontAwesomeIcons.globe)
+                : const FaIcon(FontAwesomeIcons.phone),
           ),
+          id == 1 ? TextButton(
+            onPressed: () {
+              controller.goData(
+                data: data2,
+                id: id,
+              );
+            },
+            child: const FaIcon(FontAwesomeIcons.instagram),
+          ): const SizedBox(),
           Expanded(
             child: SizedBox(
               height: double.maxFinite,

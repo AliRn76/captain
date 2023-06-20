@@ -41,7 +41,8 @@ dependencies:
   lottie: ^2.3.2
   flutter_staggered_animations: ^1.1.1
   url_launcher: ^6.1.11
-  flutter_launcher_icons: "^0.13.1"
+  flutter_launcher_icons: ^0.13.1
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
